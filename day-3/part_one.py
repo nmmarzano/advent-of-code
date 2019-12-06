@@ -80,7 +80,6 @@ def find_min_distance(coords):
 
 def main():
     intersections = find_intersections(wire_A, wire_B)
-    print(intersections)
     min_distance = find_min_distance(intersections)
     print(min_distance)
 
