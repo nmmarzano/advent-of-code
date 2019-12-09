@@ -1,9 +1,11 @@
 import math
 
+# eliminated some, real input was 168630-718098
 input_start = 168888
 input_end = 699999
 
 
+# test function
 def has_same_digits_adjacent_only_twice(n):
     digit_count = 1
     prev = n % 10
@@ -21,6 +23,7 @@ def has_same_digits_adjacent_only_twice(n):
     return has_same_digits
 
 
+# test function
 def is_never_decreasing(n):
     prev = n % 10
     while n > 1:
