@@ -68,11 +68,9 @@ def threaded_process_code(code, processor, in_queue, out_queue):
             params = get_params(output, ip)
             output[output[ip + 3]] = params[0] * params[1]
         elif operation == 'INPUT':
-            got_input = in_queue.get()
-            output[output[ip + 1]] = got_input
+            output[output[ip + 1]] = in_queue.get()
         elif operation == 'OUTPUT':
-            params = get_params(output, ip)
-            out_queue.put(params[0])
+            out_queue.put(get_params(output, ip)[0])
         elif operation == 'JIT':
             params = get_params(output, ip)
             if params[0] != 0:
