@@ -50,13 +50,10 @@ def get_params(code, ip):
     return params
 
 
-def process_code(code, paramA, paramB):
+def process_code(code):
     output = code[:]
     ip = 0
-    output[1] = paramA
-    output[2] = paramB
     instruction = 0
-    params = (0, 0)
     while ip < len(output):
         instruction = output[ip]
         operation = opcodes[opcode(instruction)]
@@ -100,7 +97,7 @@ def process_code(code, paramA, paramB):
 
 
 def main():
-    process_code(input_code, paramA=input_code[1], paramB=input_code[2])
+    process_code(input_code)
 
 
 if __name__ == '__main__':
