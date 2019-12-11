@@ -26,11 +26,8 @@ def divide_image(image, w, h):
 def flatten_image(layers):
     for i, layer in enumerate(layers):
         for j, row in enumerate(layer):
-            for k, pixel in enumerate(row):
-                if layers[0][j][k] == '2':
-                    s = list(layers[0][j])
-                    s[k] = pixel
-                    layers[0][j] = ''.join(s)
+            layers[0][j] = ''.join(list(
+                map(lambda x, y: y if x == '2' else x, layers[0][j], row)))
     return layers[0]
 
 
