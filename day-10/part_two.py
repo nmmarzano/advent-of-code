@@ -100,16 +100,16 @@ def get_sorted_angles(spacemap, x, y):
     return q
 
 
-def shoot_in_sight(spacemap, x, y):
+def shoot_in_sight_until(spacemap, x, y, top):
     count = 0
     result = (0, 0, 0)
-    while count < 200:
+    while count < top:
         for angle in get_sorted_angles(spacemap, x, y):
             result = raycast_by_angle(spacemap, x, y, angle)
             if result[0] == 1:
                 count += 1
                 spacemap[result[1]][result[2]] = '.'
-                if count == 200:
+                if count == top:
                     break
     return (result[1], result[2])
 
@@ -124,7 +124,7 @@ def process_input(smap):
 
 def main():
     spacemap = process_input(input_map)
-    (x, y) = shoot_in_sight(spacemap, 26, 29)
+    (x, y) = shoot_in_sight_until(spacemap, 26, 29, 200)
     print(x*100 + y)
     
 
