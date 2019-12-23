@@ -21,7 +21,7 @@ class OpCode(Enum):
     HALT = 99
 
 
-class IntCodeMachine:
+class IntcodeMachine:
 
     cant_params = {1: 3,
                    2: 3,
