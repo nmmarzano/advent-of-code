@@ -44,7 +44,7 @@ def paint_code(code):
     machine = IntcodeMachine(input_queue, output_queue, code)
     processor = threading.Thread(target=machine.compute, daemon=True)
 
-    painting = [[' ' for x in range(200)] for y in range(200)]
+    painting = [['.' for x in range(200)] for y in range(200)]
     robot['x'] = 100
     robot['y'] = 100
     
@@ -81,9 +81,9 @@ def paint_code(code):
         current_coord = '{},{}'.format(robot['x'], robot['y'])
     processor.join()
 
-    painting = [row for row in painting if '.' in ''.join(row) or '#' in ''.join(row)]
+    painting = [row for row in painting if '#' in ''.join(row)]
     for row in painting:
-        print(re.sub(r'\s{10}', '', ''.join(row)))
+        print(re.sub(r'\.{20}', '', ''.join(row)).replace('.', ' '))
 
 
 if __name__ == '__main__':
