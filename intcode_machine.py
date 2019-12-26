@@ -34,6 +34,8 @@ class IntcodeMachine:
                    9: 1,
                    99: 0}
 
+    need_input = 'NEED_INPUT'
+
 
     def __init__(self, in_queue=None, out_queue=None, code=None):
         self.in_queue = in_queue
@@ -132,6 +134,7 @@ class IntcodeMachine:
             elif operation == OpCode.MULTIPLY.value:
                 self.__memwrite_mode(writemode, ip + 3, relative_base, params[0] * params[1])
             elif operation == OpCode.INPUT.value:
+                self.out_queue.put(self.__class__.need_input)
                 self.__memwrite_mode(writemode, ip + 1, relative_base, self.in_queue.get())
             elif operation == OpCode.OUTPUT.value:
                 self.out_queue.put(params[0])
