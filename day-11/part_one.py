@@ -5,7 +5,6 @@ input_code = [3,8,1005,8,298,1106,0,11,0,0,0,104,1,104,0,3,8,1002,8,-1,10,1001,1
 
 cells = {}
 robot = {'x': 0, 'y': 0, 'direction': 'up'}
-clear = lambda: os.system('cls')
 
 
 def turn_robot(turn_direction):
